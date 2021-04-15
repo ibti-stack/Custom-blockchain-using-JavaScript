@@ -31,6 +31,7 @@ Blockchain.prototype.createNewTransaction = function(amount, sender, recipent) {
     }
 
     this.pendingTransactions.push(newTransaction);
+    return this.getLastBlock()['index'] + 1;         
 }
 
 module.exports = Blockchain;
