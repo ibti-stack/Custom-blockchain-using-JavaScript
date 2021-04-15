@@ -1,0 +1,19 @@
+{
+  "name": "blockchain-by-using-js",
+  "version": "1.0.0",
+  "description": "Custom Blockchain of object data and will also have block explorer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibti-stack/Custom-blockchain-using-JavaScript.git"
+  },
+  "author": "Ibtisam Ahmad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibti-stack/Custom-blockchain-using-JavaScript/issues"
+  },
+  "homepage": "https://github.com/ibti-stack/Custom-blockchain-using-JavaScript#readme"
+}
