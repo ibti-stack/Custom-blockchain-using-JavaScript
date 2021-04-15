@@ -19,4 +19,8 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
     return newBlock;
 }
 
+Blockchain.prototype.getLastBlock = function() {       // Why this method? Ans: We need it for previous block hash.
+    return this.chain[this.chain.length - 1];
+}
+
 module.exports = Blockchain;
