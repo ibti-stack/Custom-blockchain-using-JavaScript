@@ -16,5 +16,7 @@ const currentBlockData = [
         recipent: "RECIPENTTTTTTTTADDRESD"
     }
 ];
-const nonce = 100;
+console.log(bitcoin.proofOfWork(previousBlockHash, currentBlockData));
+const nonce = bitcoin.proofOfWork(previousBlockHash, currentBlockData);
 console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce));
+
