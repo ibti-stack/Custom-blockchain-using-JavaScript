@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ibti-stack/Custom-blockchain-using-JavaScript/issues"
   },
-  "homepage": "https://github.com/ibti-stack/Custom-blockchain-using-JavaScript#readme"
+  "homepage": "https://github.com/ibti-stack/Custom-blockchain-using-JavaScript#readme",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
 }
