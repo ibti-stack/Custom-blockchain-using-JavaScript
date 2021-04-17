@@ -44,6 +44,22 @@ app.get('/mine', function (req, res) {
     });
 });
 
+//Register the node and then broadcast it to the entire network and run this endpoint any of the one node
+app.post('/register-and-broadcast-node', function(req, res){
+    const newNodeUrl = req.body.newNodeUrl;
+    //.........
+});
+
+//This endpoint hit on other nodes that are already in the network and register the new node. 
+app.post('/register-node', function(req, res){
+
+});
+
+//This endpoint hit on the new node and then this new register all the other nodes that are already in the network.
+app.post('/register-nodes-bulk', function(req, res){
+
+});
+
 
 app.listen(port, function(){
     console.log(`LIstening on port ${port}...`);
