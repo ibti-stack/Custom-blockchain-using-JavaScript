@@ -89,7 +89,13 @@ app.post('/register-node', function(req, res) {
 
 //This endpoint hit on the new node and then this new register all the other nodes that are already in the network.
 app.post('/register-nodes-bulk', function(req, res){
-    
+    const allNetworkNodes = req.body.allNetworkNodes;
+    allNetworkNodes.forEach(networkNodeUrl => {
+        const nodeNotAlreadyPresent = bitcoin.networkNodes.indexOf(networkNodeUrl) == -1;
+        const notCurrentNode = bitcoin.currentNodeUrl !== networkNodeUrl;
+       if(nodeNotAlreadyPresent && notCurrentNode) bitcoin.networkNodes.push(networkNodeUrl);
+    });
+    res.json({note: 'Bulk registration successful.'});
 });
 
 
