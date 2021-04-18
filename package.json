@@ -10,7 +10,6 @@
     "node_3": "nodemon --watch dev -e js dev/networkNode.js 3003 http://localhost:3003",
     "node_4": "nodemon --watch dev -e js dev/networkNode.js 3004 http://localhost:3004",
     "node_5": "nodemon --watch dev -e js dev/networkNode.js 3005 http://localhost:3005"
-
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,8 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
     "sha256": "^0.2.0",
     "uuid": "^8.3.2"
   }

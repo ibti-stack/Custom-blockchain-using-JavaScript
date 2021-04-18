@@ -5,6 +5,7 @@ const Blockchain = require('./blockchain.js');
 const { v4: uuidv4 } = require('uuid');
 const port = process.argv[2];
 const nodeAddress = uuidv4().split('-').join('');
+const rp = require('request-promise');
 
 const bitcoin = new Blockchain();
 
@@ -47,7 +48,34 @@ app.get('/mine', function (req, res) {
 //Register the node and then broadcast it to the entire network and run this endpoint any of the one node
 app.post('/register-and-broadcast-node', function(req, res){
     const newNodeUrl = req.body.newNodeUrl;
-    //.........
+    if (bitcoin.networkNodes.indexOf(newNodeUrl) == -1 ) bitcoin.networkNodes.push(networkNodes);
+
+    //Now the below code is for Broadcasting this new node
+    const regNodePromises = [];
+    bitcoin.networkNodes.forEach(networkNodeUrl => {
+        const requestOptions = {
+            uri: networkNodeUrl + '/register-node',
+            method: 'POST',
+            body: {newNodeUrl: newNodeUrl},
+            json: true
+        };
+
+       regNodePromises.push(rp(requestOptions));
+    });
+
+    Promise.all(regNodePromises)
+    .then(data => {
+        const bulkRegisterOption = {
+            uri: newNodeUrl + '/register-nodes-bulk',
+            method: 'POST',
+            body: {allNetworkNodes: [...bitcoin.networkNodes, bitcoin.currentNodeUrl]},
+            json: true
+        };
+        return rp(bulkRegisterOption);
+    })
+    .then(data => {
+        res.json({notL 'New Node registered in tne Network successfully'});
+    })
 });
 
 //This endpoint hit on other nodes that are already in the network and register the new node. 
