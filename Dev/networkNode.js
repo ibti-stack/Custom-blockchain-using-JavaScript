@@ -74,12 +74,12 @@ app.post('/register-and-broadcast-node', function(req, res){
         return rp(bulkRegisterOption);
     })
     .then(data => {
-        res.json({notL 'New Node registered in tne Network successfully'});
+        res.json({note: 'New Node registered in tne Network successfully'});
     })
 });
 
 //This endpoint hit on other nodes that are already in the network and register the new node. 
-app.post('/register-node', function(req, res){
+app.post('/register-node', function(req, res) {
     const newNodeUrl = req.body.networkNodeUrl;
     const nodeNotAlreadyPresent = bitcoin.networkNodes.indexOf(newNodeUrl) == -1;
     const notCurrentNode = bitcoin.currentNodeUrl !== newNodeUrl;
